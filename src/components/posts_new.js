@@ -11,6 +11,7 @@ class PostNew extends Component{
             type="text"
             {...field.input}
           />
+          {field.meta.error}
         </div>
       );
   }
@@ -38,12 +39,12 @@ class PostNew extends Component{
   }
 }
 
-function validate() {
+function validate(values) {
   const errors = {};
 
   //Validate the input from 'values'
   if(!values.title){
-    errors.title = "Enter a title!";
+    errors.title = "Enter a title";
   }
 
   if(!values.categories){
